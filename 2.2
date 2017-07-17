@@ -1,0 +1,32 @@
+/*
+2
+Написать функцию palindrome, которая будет возвращает
+true, если переданная строка является полиндромом,
+и false, если не является
+function palindrome(str) {
+  // your code
+}
+palindrome("eye"); // true
+palindrome("hello"); // false
+palindrome("А роза упала на лапу Азора"); // true
+*/
+//
+
+
+function palindrome(str){
+  str = str.toUpperCase();
+  var arr1 = str.split('');
+  var arr2 = str.split('').reverse();
+
+      for ( var i = 0; i < arr1.length; i++) {
+          if (arr1[i] !== arr2[i]) {
+            return false;
+          }
+      }  return true;
+}
+
+
+  var str = 'Asd2dsa';
+
+  palindrome(str);
+  console.log(palindrome(str))
