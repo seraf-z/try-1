@@ -1,0 +1,22 @@
+/*
+4
+Написать функцию, которая возвращает сумму указанных чисел и всех
+чисел между ними. Шаг равен 1.
+Первое число необязательно наименьшее
+function sumAll(arr) {
+  // your code
+}
+
+*/
+
+function sumAll2(n3, n4) {
+  if ( n3 > n4 ) {
+    var min = n4;
+    var max = n3;
+  } else {
+    var min = n3;
+    var max = n4;
+  }
+  var sum = ( min + max ) * ( max - min + 1 ) / 2;
+  return sum
+}
