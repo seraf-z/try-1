@@ -1,0 +1,45 @@
+/*
+6
+Написать функцию, которая вернет новый объект, у которого ключи стали
+значениями, а значения ключами
+function invert_key_value(obj) {
+    // your code;
+}
+invert_key_value({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"})
+// {#00FF00: "green", #FF0000: "red", #FFFFFF: "white"}
+*/
+
+
+
+
+
+
+function invert_key_value(input){
+  var obj = {};
+  for (var key in input){
+    obj[key] = input[key];
+  }
+
+  var arrBu1 = [], arrBu2 = [];
+  var i = 0;
+  for (var key in obj) {
+    arrBu1[i] = key;
+    arrBu2[i] = obj[key];
+    i++;
+  }
+
+  var obj2 = {};
+  console.log(arrBu1);
+  console.log(arrBu2);
+  for ( var i = 0; i < arrBu2.length; i++) {
+    obj2[arrBu2[i]] = arrBu1[i];
+  }
+return obj2;
+}
+
+
+var obj1 = {red: "#FF0000", green: "#00FF00", white: "#FFFFFF"};
+
+
+console.log(obj1);
+console.log(invert_key_value(obj1))
