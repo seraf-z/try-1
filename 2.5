@@ -1,0 +1,36 @@
+/*
+5
+Написать функцию, которая в переданной строке str меняет слово before
+на слово after и возвращает новую строку.
+Если слово before начиналось с заглавной буквы, вставленное вместо
+него слово after тоже должно начинаться с заглавной буквы
+function myReplace(str, before, after) {
+  // your code
+}
+myReplace("Let us get back to more Coding", "Coding", "algorithms")
+// "Let us get back to more Algorithms".
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+// "A quick brown fox leaped over the lazy dog"
+
+*/
+
+
+function myReplace( str, before, after ) {
+
+      var a = before[0];     //  1ый символ before
+      var b = a.toUpperCase(); // делаем 1ый символ заглавным
+
+      if ( a === b ) {
+      after = after[0].toUpperCase() + after.slice(1);
+      }
+
+      var arr = str.split(' ');
+      for ( var i = 0; i < arr.length; i++) {
+        if ( arr[i] === before) {
+          arr[i] = after
+        }
+      }
+
+    return str = arr.join(' ')
+
+  }
