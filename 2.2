@@ -13,16 +13,14 @@ palindrome("А роза упала на лапу Азора"); // true
 //
 
 
-function palindrome(str){
-  str = str.toUpperCase();
-  var arr1 = str.split('');
-  var arr2 = str.split('').reverse();
-
-      for ( var i = 0; i < arr1.length; i++) {
-          if (arr1[i] !== arr2[i]) {
-            return false;
-          }
-      }  return true;
+function palindrome(str) {
+  let str1 = str.toUpperCase();
+  let str2 = str1.split('').reverse().join('');
+  
+  if ( str1 !== str2 ) {
+    return false;
+  }
+  return true;
 }
 
 
