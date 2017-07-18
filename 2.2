@@ -17,6 +17,9 @@ function palindrome(str) {
   let str1 = str.toUpperCase();
   let str2 = str1.split('').reverse().join('');
   
+  str1 = str1.replace(/ /g, '');
+  str2 = str2.replace(/ /g, '');
+  
   if ( str1 !== str2 ) {
     return false;
   }
