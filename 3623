@@ -14,9 +14,9 @@ var arr = [
  {name: 'height', value: 20},
 ]; 
   
- var obj = {};
- 
-   arr.forEach(function objFromArr(item, i, arr) {
+var obj = {};
+
+arr.forEach(function objFromArr(item, i, arr) {
           obj[arr[i]['name']] = arr[i]['value'];});
   
-    console.log(obj);
+console.log(obj);
