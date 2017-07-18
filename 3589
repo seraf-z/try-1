@@ -12,24 +12,19 @@ range(0, 10, 3) // => [0, 3, 6, 9]
 range(0) // => []
  */
 
-function range(start, stop, step) {
-  
-  if (arguments.length == 2) {
-    step = 1;
-  }
-  
-  if (arguments.length == 1) {
+function range(start, stop, step = 1) {
+  if (arguments.length === 1) {
     stop = start;
     start = 0; 
-    step = 1;
   }
 
-  var arr = [];
-  var ahtuNG = start;
-  for (i = 0; ahtuNG < stop; ++i) {
-    arr[i] = start + i * step;
-    ahtuNG += step; 
-  }
+  let arr = [];
+  let i = start;
+  
+  while (i < stop) {
+    arr.push(i);
+    i += step;
+  }  
   
   return arr;
 }
