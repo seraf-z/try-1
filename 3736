@@ -14,39 +14,42 @@
   var str = 'AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB';
   
   function RLE(str) {
-    var arr = str.split('');
+    let arr = str.split('');
+    let counter = 0;
+    let sum = '';
+    let sum2 = '';
+
     
-    if ( 'A' <= arr[0] && arr[0] <= 'Z' ) {
-    
-        var counter = 0;
-        var sum = '';
-        var sum2 = '';
+      
+      for (var i = 0; i < arr.length; i++){
+        
+        if (arr[i] < "A" || arr[i] > 'Z') {
+                return alert('ОШИБКА')
+        }  
+        
+        if ( arr[i] == arr[i+1]) { 
 
-        for (var i = 0; i < arr.length; i++){
+          if ( counter > 0 ) {
+            sum = arr[i] + '' + counter;
+            counter++;  
+          } else {
+            sum = arr[i] + '';
+            counter++;
+          }
 
-            if ( arr[i] == arr[i+1]) { 
+        } else { 
 
-                  if ( counter > 0 ) {
-                    sum = arr[i] + '' + counter;
-                    counter++;  
-                  } else {
-                    sum = arr[i] + '';
-                    counter++;
-                  }
-
-              } else { 
-
-                   if ( counter > 0) {
-                     counter += 1;
-                     sum2 = sum2 + arr[i] + counter + '';
-                     counter = 0;
-                   } else {
-                     sum2 = sum2 + arr[i] + '';
-                     counter = 0;}
-              }
-        }
-     } else {return alert('ОШИБКА')} 
-  return sum2;  
+          if ( counter > 0) {
+            counter += 1;
+            sum2 = sum2 + arr[i] + counter + '';
+            counter = 0;
+          } else {
+            sum2 = sum2 + arr[i] + '';
+            counter = 0;}
+         }
+      }
+ 
+    return sum2;  
   }          
   
  console.log(RLE(str));
