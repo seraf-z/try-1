@@ -1,0 +1,22 @@
+/*
+4532
+Написать функцию truncate(str, count), которая будет обрезать строку по словам.
+var str = 'Мама мыла раму';
+truncate(str, 7); // 'Мама...'
+truncate(str, 11); // 'Мама мыла...'
+*/
+
+function truncate(str, count){
+    var arr = str.split('');
+    for ( var i = count; i < arr.length; i-- ) {
+       if (arr[i] == ' ') { break
+         console.log(arr[i]) 
+       } else { count--
+         }
+   }
+   arr.length = count;
+   var str1 = arr.join('') + '...'
+   return str1;    
+}   
+    var str = 'Мама мыла раму';
+    console.log(truncate(str, 7))
