@@ -15,22 +15,15 @@ myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 */
 
 
-function myReplace( str, before, after ) {
+function myReplace(str, before, after) {
+  let a = before[0];  
+  let b = a.toUpperCase(); 
 
-      var a = before[0];     //  1ый символ before
-      var b = a.toUpperCase(); // делаем 1ый символ заглавным
+  if ( a === b ) {
+  after = after[0].toUpperCase() + after.slice(1);
+  }
 
-      if ( a === b ) {
-      after = after[0].toUpperCase() + after.slice(1);
-      }
-
-      var arr = str.split(' ');
-      for ( var i = 0; i < arr.length; i++) {
-        if ( arr[i] === before) {
-          arr[i] = after
-        }
-      }
-
-    return str = arr.join(' ')
-
-  }
+  str = str.replace(before, after);
+  
+  return str;
+}
