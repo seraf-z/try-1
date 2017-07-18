@@ -11,15 +11,13 @@ console.log(randomNumber());
 //  console.log( Math.round( Math.random() * 10000) )
   
   
-  function randomNumber(){
-    
-    let rand = function rand (){
-    console.log(Math.round( Math.random() * 100000))
-    }
-    
-    let i = Math.round( Math.random() * 10000);
-    
-    return setTimeout(rand, i);
-  }
+function randomNumber() {
   
-  randomNumber()
+  let rand = function() {
+  console.log(Math.round( Math.random() * 100000) );
+  }
+    
+  let i = Math.round( Math.random() * 10000);
+    
+  return setTimeout(rand, i);
+} 
