@@ -1,0 +1,22 @@
+/*
+3623
+Напишите код, который сделает из массива объект
+на входе массив
+var arr = [
+ {name: 'width', value: 10}, 
+ {name: 'height', value: 20}
+];
+на выходе объект {width: 10, height: 20}
+*/
+
+var arr = [
+ {name: 'width', value: 10}, 
+ {name: 'height', value: 20},
+]; 
+  
+ var obj = {};
+ 
+   arr.forEach(function objFromArr(item, i, arr) {
+          obj[arr[i]['name']] = arr[i]['value'];});
+  
+    console.log(obj);
