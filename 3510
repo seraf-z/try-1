@@ -7,11 +7,15 @@ const arr2 = [1, 5, 6, 7]
 f(arr1, arr2) => [1, 2, 3, 4, 5, 6, 7]
 */
 
-function concAndClean (a, b) {
-  var c = a.concat(b); 
-  for (var j = 0; j < c.length; j++) {
-    for (var i = 1 + j; i < c.length; i++) {
-      while ( c[j] == c[i] ) {
+function concAndClean(a, b) {
+  let c = a.concat(b); 
+  
+  for (let j = 0; j < c.length; j++) {
+  
+    for (let i = 1 + j; i < c.length; i++) {
+    
+      while ( c[j] === c[i] ) {
+      
         c.splice(i, 1);
       }
     }
