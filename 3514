@@ -6,15 +6,23 @@
 */
 
 function oddInArr(arr) {   
- var counter = 0;
-    
-   for (j = 0; j < arr.length - 1; j++) {   
-      for (i = 0; i < arr.length; i++) {
-        if (arr[j] == arr[i]) {counter++ }  
+  let counter = 0;
+  
+  for (let j = 0; j < arr.length - 1; j++) {   
+      
+    for (let i = 0; i < arr.length; i++) {
+        
+      if (arr[j] === arr[i]) {
+        counter++ 
+        }  
       }  
-        if (counter % 2 !== 0) { return console.log(arr[j]) }
-   }   
- }   
+      
+      if (counter % 2 !== 0) { 
+        return arr[j] 
+      }
+  }   
+    
+}   
     
     
  oddInArr(arr1);   
