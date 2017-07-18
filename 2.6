@@ -14,32 +14,13 @@ invert_key_value({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"})
 
 
 
-function invert_key_value(input){
-  var obj = {};
-  for (var key in input){
-    obj[key] = input[key];
-  }
-
-  var arrBu1 = [], arrBu2 = [];
-  var i = 0;
-  for (var key in obj) {
-    arrBu1[i] = key;
-    arrBu2[i] = obj[key];
-    i++;
-  }
-
-  var obj2 = {};
-  console.log(arrBu1);
-  console.log(arrBu2);
-  for ( var i = 0; i < arrBu2.length; i++) {
-    obj2[arrBu2[i]] = arrBu1[i];
-  }
-return obj2;
+function invert_key_value(input) {
+  
+  let output = {};
+  
+  for (let key in input){
+    output[input[key]] = key;
+  }
+ 
+  return output;
 }
-
-
-var obj1 = {red: "#FF0000", green: "#00FF00", white: "#FFFFFF"};
-
-
-console.log(obj1);
-console.log(invert_key_value(obj1))
