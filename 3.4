@@ -10,13 +10,8 @@ function sumAll(arr) {
 */
 
 function sumAll2(n3, n4) {
-  if ( n3 > n4 ) {
-    var min = n4;
-    var max = n3;
-  } else {
-    var min = n3;
-    var max = n4;
-  }
-  var sum = ( min + max ) * ( max - min + 1 ) / 2;
+  let min = Math.min(n3, n4);
+  let max = Math.max(n3, n4);
+  let sum = ( min + max ) * ( max - min + 1 ) / 2;
   return sum
 }
