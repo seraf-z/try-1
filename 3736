@@ -1,0 +1,52 @@
+/*  3736
+
+ * Дана строка, состоящая из букв A-Z:
+ * "AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+ * Нужно написать функцию RLE, которая на выходе даст строку вида:
+ * "A4B3C2XYZD4E3F3A6B28"
+ * И сгенерирует любую ошибку, если на вход пришла невалидная строка.
+ *
+ * Пояснение:
+ * 1. если символ встречается 1 раз, он остается без изменений
+ * 2. если символ повторяется более 1 раза, к нему добавляется количество повторений
+ */
+
+  var str = 'AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB';
+  
+  function RLE(str) {
+    var arr = str.split('');
+    
+    if ( 'A' <= arr[0] && arr[0] <= 'Z' ) {
+    
+        var counter = 0;
+        var sum = '';
+        var sum2 = '';
+
+        for (var i = 0; i < arr.length; i++){
+
+            if ( arr[i] == arr[i+1]) { 
+
+                  if ( counter > 0 ) {
+                    sum = arr[i] + '' + counter;
+                    counter++;  
+                  } else {
+                    sum = arr[i] + '';
+                    counter++;
+                  }
+
+              } else { 
+
+                   if ( counter > 0) {
+                     counter += 1;
+                     sum2 = sum2 + arr[i] + counter + '';
+                     counter = 0;
+                   } else {
+                     sum2 = sum2 + arr[i] + '';
+                     counter = 0;}
+              }
+        }
+     } else {return alert('ОШИБКА')} 
+  return sum2;  
+  }          
+  
+ console.log(RLE(str));
