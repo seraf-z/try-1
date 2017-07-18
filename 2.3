@@ -10,26 +10,21 @@ chunkArrayInGroups(["a", "b", "c", "d"], 2); // [["a", "b"], ["c", "d"]]
 
 
     
-function chunkArrayInGroups(arr, n){
-  
-  if ( arr.length % n !== 0) {
-    return alert('WRONG!!!');
-    
-  } else {
-     var arrFin = [];
-     var arrBuff = [];
-     var limit = arr.length / n; 
-     var start = 0;
-     var stop = limit;
+ function chunkArrayInGroups(arr, size){
+  let arrFin = [];       
+  let start = 0;
+  let stop = size;
+  let n = Math.ceil ( arr.length / size );
 
-     for ( i = 0; i < n; i++ ) { 
-         for (k = 0, j = start; k < limit - 1, j < stop; j++, k++) {
-              arrBuff[k] = arr[j];
-          }
-            arrFin[i] = arrBuff;
-            arrBuff = [];    
-            start = stop;
-            stop = stop + limit;  
-     }
-  }  return arrFin;
+  for (let i = 0; i < n-1; i++ ) {  // добавляем все, кроме последнего
+    arrFin.push( arr.slice( start, stop ) );
+    start = stop;
+    stop = stop + size;    
+  }
+  
+  arrFin.push( arr.slice( start ) ); // добавляем весь хвост
+ 
+  return arrFin;
 }
+  
+  console.log( chunkArrayInGroups( [1,2,3,4,5,6,7,8,9], 4 ) ) 
