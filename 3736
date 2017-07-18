@@ -27,13 +27,13 @@
                 return alert('ОШИБКА')
         }  
         
-        if ( arr[i] == arr[i+1]) { 
+        if ( arr[i] === arr[i+1]) { 
 
           if ( counter > 0 ) {
-            sum = arr[i] + '' + counter;
+            sum = arr[i] + counter;
             counter++;  
           } else {
-            sum = arr[i] + '';
+            sum = arr[i];
             counter++;
           }
 
@@ -41,10 +41,10 @@
 
           if ( counter > 0) {
             counter += 1;
-            sum2 = sum2 + arr[i] + counter + '';
+            sum2 = sum2 + arr[i] + counter;
             counter = 0;
           } else {
-            sum2 = sum2 + arr[i] + '';
+            sum2 = sum2 + arr[i];
             counter = 0;}
          }
       }
