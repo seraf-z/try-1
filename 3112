@@ -1,0 +1,23 @@
+/*3112
+Написать функцию, удаляющую элемент из массива по индексу
+var arr = [1, 2, 3, 4, 5];
+function drop(arr, i) {
+    // ...
+}
+drop(arr, 3) // [1, 2, 3, 5]
+*/
+
+function drop(a, b) {
+   var clone = [];
+   for (var i = 0; i < a.length; i++) {
+     clone[i] = a[i];
+   }
+   clone.splice(b, 1);
+   return clone;
+}
+  
+  var arr = [1,2,3,4,5];
+      console.log(arr);
+  var newArr = drop(arr, 0)
+      console.log(arr);
+      console.log(newArr);
