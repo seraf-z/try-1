@@ -1,0 +1,25 @@
+/*
+3195
+Напишите функцию, которая в данном интерфейсе возвращает одно случайное число через случайный промежуток времени.
+function randomNumber() {
+  // ...
+}
+console.log(randomNumber());
+В консоли должно появиться случайное число 
+*/
+  
+//  console.log( Math.round( Math.random() * 10000) )
+  
+  
+  function randomNumber(){
+    
+    let rand = function rand (){
+    console.log(Math.round( Math.random() * 100000))
+    }
+    
+    let i = Math.round( Math.random() * 10000);
+    
+    return setTimeout(rand, i);
+  }
+  
+  randomNumber()
