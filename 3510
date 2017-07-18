@@ -1,0 +1,25 @@
+/*
+3510
+На входе два массива:
+const arr1 = [1, 2, 3, 4, 5]
+const arr2 = [1, 5, 6, 7]
+Нужно написать функцию, которая возвращает массив с числами из переданных массивов без дубликатов:
+f(arr1, arr2) => [1, 2, 3, 4, 5, 6, 7]
+*/
+
+function concAndClean (a, b) {
+  var c = a.concat(b); 
+  for (var j = 0; j < c.length; j++) {
+    for (var i = 1 + j; i < c.length; i++) {
+      while ( c[j] == c[i] ) {
+        c.splice(i, 1);
+      }
+    }
+  }
+  return c;
+}
+
+const arr1 = [1,2,3,4,5];
+const arr2 = [1,5,6,7];  
+
+var newArr =  concAndClean (arr1, arr2);
