@@ -7,15 +7,24 @@ truncate(str, 11); // 'Мама мыла...'
 */
 
 function truncate(str, count){
-    var arr = str.split('');
-    for ( var i = count; i < arr.length; i-- ) {
-       if (arr[i] == ' ') { break
-         console.log(arr[i]) 
-       } else { count--
-         }
-   }
-   arr.length = count;
-   var str1 = arr.join('') + '...'
+  let arr = str.split('');
+  let length = 0;
+  
+  for ( let i = 0; i < count; i++) { 
+    if (arr[i] === ' ') {
+      length = i;
+    }
+  }
+  
+  for ( let i = count; i < arr.length; i++) { 
+    if (arr[i] === ' ') {
+      length = i;
+      break
+    }
+  }
+  
+   arr.length = length;
+   let str1 = arr.join('') + '...'
    return str1;    
 }   
     var str = 'Мама мыла раму';
