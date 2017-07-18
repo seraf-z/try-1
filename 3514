@@ -1,0 +1,23 @@
+ /*    
+3514
+Найти число, повторяющееся нечетное количество раз
+[20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5] // 5
+[1,1,2,-2,5,2,4,4,-1,-2,5] // -1
+*/
+
+function oddInArr(arr) {   
+ var counter = 0;
+    
+   for (j = 0; j < arr.length - 1; j++) {   
+      for (i = 0; i < arr.length; i++) {
+        if (arr[j] == arr[i]) {counter++ }  
+      }  
+        if (counter % 2 !== 0) { return console.log(arr[j]) }
+   }   
+ }   
+    
+    
+ oddInArr(arr1);   
+ oddInArr(arr2);   
+    console.log(arr1);
+    console.log(arr2);
