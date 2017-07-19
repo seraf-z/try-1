@@ -1,0 +1,42 @@
+Не могу понять как использовать initial
+
+const library = [
+	{
+		title: 'The Road Ahead',
+		author: 'Bill Gates',
+		libraryID: 1254
+	},
+	{
+		title: 'Walter Isaacson',
+		author: 'Steve Jobs',
+		libraryID: 4264
+	},
+	{
+		title: 'Mockingjay: The Final Book of The Hunger Games',
+		author: 'Suzanne Collins',
+		libraryID: 3245
+	}
+];
+
+
+function sortLibrary(arr, field_name, reversed) {
+
+	arr.sort(fn);
+
+	if ( reversed === true ) {
+		arr.reverse()
+	}
+
+	function fn(book1, book2) {
+		if (book1[field_name] > book2[field_name]) {
+			return true
+		} else {
+			return false
+		}
+	}
+
+	return arr
+}
+
+
+console.log( sortLibrary(library, 'author', true) )
