@@ -1,0 +1,50 @@
+/*
+3613
+Мы описали пользователя mike и всех его друзей в формате JSON:
+var mike = {
+    friends: [{
+        name: 'Anna',
+        avatar: {
+            url: 'http://some/url/to/avatar'
+        }
+    }]
+}
+Вам необходимо получить аватар первого друга mike .
+Если друзей нет или они не загрузили своё фото, то нужно вернуть 'http://default/url/to/avatar'
+*/
+
+
+function getSome(obj, arr) {
+	if (typeof obj !== 'object') {
+		return 'http://default/url/to/avatar';
+	}
+
+	let result = obj[arr[0]];
+
+	for (let i = 1; i < arr.length; i++) {
+		result = result[arr[i]];
+
+		if (typeof result === 'undefined') {
+			return 'http://default/url/to/avatar';
+		}
+	}
+
+	return result;
+}
+
+const mike = {
+	friends: [
+		{
+			name: 'Anna',
+			avatar: {url: 'http://some/url/to/avatar'}
+		},
+		{
+			name: 'Vassya',
+			avatar: {url: 'http://next/url2/to/AVATAR'}
+		}
+	]
+};
+
+const path = ['friends', '0', 'avatar', 'url'];
+
+console.log( getSome(mike, path) );
