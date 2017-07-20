@@ -18,11 +18,19 @@ function getData(url) {
     .then( data => {         
     let tempCelsius = Math.round( (data.main.temp - 273.15) * 10 ) / 10 ;
     let windSpeed = Math.round( data.wind.speed * 10 ) / 10;
-    let dayLangth = data.sys.sunset - data.sys.sunrise // пересчитать в часы минуты секунды
-      console.log(tempCelsius + ' - температура')
-      console.log(windSpeed + ' - скорость ветра')
-      console.log(dayLangth + ' - продолжительность дня')
+    let dayLangth = data.sys.sunset - data.sys.sunrise; 
+    let dayHours = secToTime(dayLength);
+      console.log('Температура: ' + tempCelsius + ' градусов');
+      console.log('Cкорость ветра: ' + windSpeed +' м/с');
+      console.log('Продолжительность дня: ' + dayHours);      
     })   
   
     .catch( () => console.log('нет такого города') );
+}
+
+function secToTime (seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds - hours * 3600)/60);
+  const sec = seconds - hours * 3600 - minutes * 60;
+  return result = hours + " часов " + minutes + " минут и " + sec + " секунд";
 }
