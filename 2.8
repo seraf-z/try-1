@@ -6,7 +6,7 @@ function getImage(url) {
   
     img.onload = () => resolve(url); 
         
-    img.error = () => reject(url);  
+    img.onerror = () => reject(url);  
     
     img.src = url;
         
