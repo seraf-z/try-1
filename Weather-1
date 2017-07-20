@@ -1,0 +1,28 @@
+'use strict';
+
+  const url = getCityUrl();
+  getData(url); 
+
+function getCityUrl () {
+  const city = prompt("Choose your city", 'Moscow');
+  const urlMain ='http://api.openweathermap.org/data/2.5/weather?q=TOWN&appid=bd5e378503939ddaee76f12ad7a97608'
+  let urlCity = urlMain.replace("TOWN", city);
+  return urlCity;
+}
+  
+function getData(url) {
+  fetch(url)
+    .then( response => {     
+      return response.json();
+    })  
+    .then( data => {         
+    let tempCelsius = Math.round( (data.main.temp - 273.15) * 10 ) / 10 ;
+    let windSpeed = Math.round( data.wind.speed * 10 ) / 10;
+    let dayLangth = data.sys.sunset - data.sys.sunrise // пересчитать в часы минуты секунды
+      console.log(tempCelsius + ' - температура')
+      console.log(windSpeed + ' - скорость ветра')
+      console.log(dayLangth + ' - продолжительность дня')
+    })   
+  
+    .catch( () => console.log('нет такого города') );
+}
