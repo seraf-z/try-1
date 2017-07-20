@@ -1,0 +1,25 @@
+function getImage(url) {  
+  
+  let prom = new Promise( (resolve, reject) => {
+    
+    let img = new Image();
+    
+    img.src = url;
+    
+    img.onload = () => resolve(url); 
+        
+    img.error = () => reject(url);  
+        
+  })
+   return prom
+}
+
+getImage('http://bit.ly/2vntYlL')
+
+  .then(url => {
+    alert(`${url} successfully loaded`);
+})
+
+  .catch(url => {
+    alert(`Error loading ${url}`);
+});
