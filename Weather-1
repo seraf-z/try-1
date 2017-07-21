@@ -18,7 +18,7 @@ function getData(url) {
     .then( data => {         
     let tempCelsius = Math.round( (data.main.temp - 273.15) * 10 ) / 10 ;
     let windSpeed = Math.round( data.wind.speed * 10 ) / 10;
-    let dayLangth = data.sys.sunset - data.sys.sunrise; 
+    let dayLength = data.sys.sunset - data.sys.sunrise; 
     let dayHours = secToTime(dayLength);
       console.log('Температура: ' + tempCelsius + ' градусов');
       console.log('Cкорость ветра: ' + windSpeed +' м/с');
