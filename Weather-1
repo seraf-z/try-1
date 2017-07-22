@@ -4,10 +4,9 @@
   getData(url); 
 
 function getCityUrl () {
-  const city = prompt("Choose your city", 'Moscow');
-  const urlMain ='http://api.openweathermap.org/data/2.5/weather?q=TOWN&appid=bd5e378503939ddaee76f12ad7a97608'
-  let urlCity = urlMain.replace("TOWN", city);
-  return urlCity;
+  const city = prompt("Choose your city", "Moscow");
+  const urlMain ='http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bd5e378503939ddaee76f12ad7a97608'
+  return urlMain;
 }
   
 function getData(url) {
@@ -16,21 +15,21 @@ function getData(url) {
       return response.json();
     })  
     .then( data => {         
-    let tempCelsius = Math.round( (data.main.temp - 273.15) * 10 ) / 10 ;
-    let windSpeed = Math.round( data.wind.speed * 10 ) / 10;
-    let dayLength = data.sys.sunset - data.sys.sunrise; 
-    let dayHours = secToTime(dayLength);
-      console.log('Температура: ' + tempCelsius + ' градусов');
-      console.log('Cкорость ветра: ' + windSpeed +' м/с');
-      console.log('Продолжительность дня: ' + dayHours);      
+    const tempCelsius = Math.round( (data.main.temp - 273.15) * 10 ) / 10;
+    const windSpeed = Math.round( data.wind.speed * 10 ) / 10;
+    const dayLength = data.sys.sunset - data.sys.sunrise; 
+    const dayHours = secToTime(dayLength);
+    console.log(`Температура: ${tempCelsius}градусов
+Cкорость ветра: ${windSpeed} м/с
+Продолжительность дня: ${dayHours}`); 
     })   
   
-    .catch( () => console.log('нет такого города') );
+    .catch( () => console.log("нет такого города") );
 }
 
 function secToTime (seconds) {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds - hours * 3600)/60);
   const sec = seconds - hours * 3600 - minutes * 60;
-  return result = hours + " часов " + minutes + " минут и " + sec + " секунд";
+  return `${hours} часов ${minutes} минут и ${sec} сек`;
 }
