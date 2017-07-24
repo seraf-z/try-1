@@ -1,4 +1,4 @@
-const url = `http://api.openweathermap.org/data/2.5/weather?q=${prompt("Choose your city", "Moscow")}&appid=bd5e378503939ddaee76f12ad7a97608`;
+const url = `http://api.openweathermap.org/data/2.5/weather?q=${prompt("Choose your city", "Tokyo")}&appid=bd5e378503939ddaee76f12ad7a97608`;
 
 
 fetch(url)
@@ -17,7 +17,7 @@ fetch(url)
 	
 
 function getCitysData(obj) {
-const count = prompt("How many citys?", "5");
+const count = prompt("How many citys?", "15");
 return	fetch(`http://api.openweathermap.org/data/2.5/find?lat=${obj['lat']}&lon=${obj['lon']}&cnt=${count}&appid=bd5e378503939ddaee76f12ad7a97608`)
 		  .then( response => response.json() )
 		  .then( response => response.list)
@@ -34,22 +34,23 @@ function getCitysNameTemp (arr, obj) {
     item["temp"] = arr[i]["main"]["temp"];
     newArr.push(item);
   }
+    console.log(obj)
   
-  let nextArr = [];
+    let nextArr = [];
   
   for (let i = 0; i < newArr.length; i++) {
-    if ( obj['temp'] < newArr[i]['temp']  ) {
+    if ( obj['temp'] < newArr[i]['temp'] ) {
       nextArr.push(newArr[i])
     } 
   }
   
-for (let i = 0; i < nextArr.length; i++) {  
-  if(nextArr.length === 0) { 
-    console.log(`в ${obj['name']} теплее, чем в ${newArr.length} ближайших городах`)
-  }else{
-    console.log(`в ${nextArr[i]['name']} теплее, чем в ${obj['name']} `)
-  }
-}  
-  
+  console.log(nextArr)
  
+  if(nextArr.length === 0) { 
+    console.log(`в ${obj['name']} теплее, чем в ${arr.length} ближайших городах`)
+  }else{
+    for (let i = 0; i < nextArr.length; i++) {  
+    console.log(`в ${nextArr[i]['name']} теплее на ${newArr[i]['temp'] - obj['temp']} градусов, чем в ${obj['name']} `)
+    }
+  }  
 }
