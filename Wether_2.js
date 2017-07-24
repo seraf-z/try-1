@@ -6,7 +6,7 @@ fetch(url)
   .then( response => {
     let obj = {};
     obj["name"] = response.name;
-    obj['temp'] = response.main.temp;
+    obj['temp'] = Math.floor(response.main.temp * 10);
     obj['lat'] = response.coord.lat;
     obj['lon'] = response.coord.lon;
     return obj;
@@ -31,7 +31,7 @@ function getCitysNameTemp (arr, obj) {
   for (let i = 0; i < arr.length; i++) {
     let item = {};
     item["name"] = arr[i]["name"];
-    item["temp"] = arr[i]["main"]["temp"];
+    item["temp"] = Math.floor(arr[i]["main"]["temp"] * 10);
     newArr.push(item);
   }
     console.log(obj)
@@ -50,7 +50,7 @@ function getCitysNameTemp (arr, obj) {
     console.log(`в ${obj['name']} теплее, чем в ${arr.length} ближайших городах`)
   }else{
     for (let i = 0; i < nextArr.length; i++) {  
-    console.log(`в ${nextArr[i]['name']} теплее на ${newArr[i]['temp'] - obj['temp']} градусов, чем в ${obj['name']} `)
+    console.log(`в ${nextArr[i]['name']} теплее на ${(nextArr[i]['temp'] - obj['temp'])/10} градусов, чем в ${obj['name']} `)
     }
   }  
 }
