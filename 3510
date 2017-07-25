@@ -9,18 +9,17 @@ f(arr1, arr2) => [1, 2, 3, 4, 5, 6, 7]
 
 function concAndClean(a, b) {
   let c = [].concat(a,b); 
+  let obj = {};
+  let d = [];
   
-  for (let j = 0; j < c.length; j++) {
-  
-    for (let i = 1 + j; i < c.length; i++) {
-    
-      while ( c[j] === c[i] ) {
-      
-        c.splice(i, 1);
-      }
-    }
-  }
-  return c;
+  c.forEach(function(item,c) {
+    obj[item] = 0
+  });
+
+  for(let i in obj) {
+    d.push(i)
+  };
+return d;
 }
 
 const arr1 = [1,2,3,4,5];
