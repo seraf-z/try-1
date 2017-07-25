@@ -19,23 +19,23 @@ const library = [
 ];
 
 
-function sortLibrary(arr, field_name, reversed) {
+function sortLibrary(arr, field_name, reversed, initial = x => x) {
+  let clone = [].concat(arr)
+  clone.sort(fn);
+  
+  if ( reversed === true ) {
+    clone.reverse()
+  };
 
-	arr.sort(fn);
-
-	if ( reversed === true ) {
-		arr.reverse()
-	}
-
-	function fn(book1, book2) {
-		if (book1[field_name] > book2[field_name]) {
-			return true
-		} else {
-			return false
-		}
-	}
-
-	return arr
+  function fn(book1, book2) {
+    if (initial(book1[field_name]) > initial(book2[field_name])) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  return clone
 }
 
 
