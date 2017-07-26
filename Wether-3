@@ -1,22 +1,23 @@
 const str = prompt("Choose cities", "Volgograd, Tokyo, London, Paris");
 const arr = str.split(', ');
 
-const arrUrl = arr.map(function(item, arr){
-  return item = `http://api.openweathermap.org/data/2.5/weather?q=${item}&appid=bd5e378503939ddaee76f12ad7a97608`;                        
+const arrUrl = arr.map( item => {
+  return `http://api.openweathermap.org/data/2.5/weather?q=${item}&appid=bd5e378503939ddaee76f12ad7a97608`;                        
 })
 
 
-Promise.all( arrUrl.map( function(item) {return fetch(item).then(response => response.json());} ))
+Promise.all( arrUrl.map( item => {
+   return fetch(item).then(response => response.json())} )
+   )
   .then(arrJson => {  
-     let anser = "";
+     let answerArr = [];
+     
      arrJson.forEach( item => {
-     const tempCelsius = Math.round( (item.main.temp - 273.15) * 10 ) / 10;
-     let str = `${item.name}: температура ${tempCelsius}С, скорость ветра: ${item.wind.speed} м/с, влажность ${item.main.humidity}%\n`; 
-     anser += str;
-     return anser;  
-     })
+       const tempCelsius = Math.round( (item.main.temp - 273.15) * 10 ) / 10;
+       answerArr.push(`${item.name}: температура ${tempCelsius}С, скорость ветра: ${item.wind.speed} м/с, влажность ${item.main.humidity}%`); 
+      })
   
-     return alert(anser);
+     return alert(answerArr.join('\n'));
   })
   .catch( () => console.log('мимо') 
 );
